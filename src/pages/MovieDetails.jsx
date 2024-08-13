@@ -6,11 +6,12 @@ import axios from 'axios'
 function MovieDetails() {
 
     const [movie,setMovie] = useState(null)
-
     const {id} = useParams()
 
+  
+
     useEffect(()=>{
-        axios.get(`http://localhost:8000/movies/${id}?_embed=actors`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/movies/${id}?_embed=actors`)
         .then((response)=>{
             setMovie(response.data)
             console.log(response.data)

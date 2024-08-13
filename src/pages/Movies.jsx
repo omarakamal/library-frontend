@@ -10,8 +10,13 @@ function Movies() {
     
     const [movies,setMovies] = useState([])
 
+    console.log(import.meta.env.VITE_BACKEND_URL)
+
+    console.log(import.meta.env.VITE_STUDENT_NAME)
+
+
     useEffect(()=>{
-        axios.get('http://localhost:8000/movies')
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/movies`)
         .then((allMovies)=>{
             setMovies(allMovies.data)
         })
